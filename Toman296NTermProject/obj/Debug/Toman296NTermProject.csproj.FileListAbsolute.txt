@@ -173,7 +173,6 @@ C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\bin\Mic
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.dll
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.pdb
-C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.csprojResolveAssemblyReference.cache
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.Toman296NTermProject.resources
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.csproj.GenerateResource.Cache
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.Migration2.resources
@@ -181,3 +180,8 @@ C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Deb
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration4.resources
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration5.resources
 C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration6.resources
+C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration7.resources
+C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration71.resources
+C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.migration72.resources
+C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.Migrations.Migration8.resources
+C:\Users\slewin\Documents\GitHub\CS296N_TermProject\Toman296NTermProject\obj\Debug\Toman296NTermProject.csprojResolveAssemblyReference.cache

@@ -12,13 +12,18 @@ using Toman296NTermProject.DAL;
 using System.Text;
 using System.Reflection; // Obtains type information in real time by examining objects' data. 
 using System.Text.RegularExpressions;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Toman296NTermProject.Controllers
 {
+    //[Authorize(Roles = "User")]
+    [AllowAnonymous]
     public class DataController : Controller
     {
         public APIServiceCaller caller = new APIServiceCaller();
         public Toman296NTermProjectContext db = new Toman296NTermProjectContext();
+        
         // GET: Data
         public ActionResult Index()
         {

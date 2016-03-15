@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Toman296NTermProject.Models;
+using Toman296NTermProject.DAL;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Toman296NTermProject.Controllers
 {
@@ -17,12 +19,14 @@ namespace Toman296NTermProject.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        //public Toman296NTermProjectContext db = new Toman296NTermProjectContext();
+        //UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new Toman296NTermProjectContext()));
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +38,9 @@ namespace Toman296NTermProject.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +124,7 @@ namespace Toman296NTermProject.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -152,18 +156,37 @@ namespace Toman296NTermProject.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                //var userStore = new UserStore<ApplicationUser>(context);
+                //var userManager = new UserManager<ApplicationUser>(userStore);
+                //userManager.Create(user, model.Password);
+                //userManager.AddToRoles(user.Id, "User");
+
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    Toman296NTermProjectContext context = new Toman296NTermProjectContext();
+                    var userStore = new UserStore<ApplicationUser>(context);
+                    var userManager = new UserManager<ApplicationUser>(userStore);
+
+
+                    userManager.AddToRole(user.Id, "User"); //This tries to drop and recreate the database in the midst of writing to it, which is absolutely silly, and I need to figure out why it's doing that *now* and not when the program first runs.
+                    context.SaveChanges();
+
+                    //await UserManager.AddToRoleAsync(user.Id, "User"); // Says "Role User does not exist." But it does. 
                     
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Core");
                 }
                 AddErrors(result);
             }
@@ -386,13 +409,11 @@ namespace Toman296NTermProject.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // GET: /Account/LogOff
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Core");
         }
 
         //
@@ -449,7 +470,7 @@ namespace Toman296NTermProject.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Core");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

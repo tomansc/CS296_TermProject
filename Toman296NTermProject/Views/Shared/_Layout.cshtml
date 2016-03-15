@@ -8,7 +8,15 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="header" style="color:white;"><h2>&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;Tech and gender representation&nbsp;<small>&nbsp;&nbsp;Data tool and hub</small></h2></div>
+    <div class="header" style="color:white;"><h2>&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;Tech and gender representation&nbsp;<small>&nbsp;&nbsp;Data tool and hub</small></h2>@if (User.Identity.IsAuthenticated)
+    {
+        <a href="@Url.Action("LogOff", "Account")"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log Out</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log In&nbsp;&nbsp;</a>
+                <a href="@Url.Action("Register", "Account")"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Register </a>
+    }</div>
     <div class="contentBox">
         <h3>@ViewBag.Title</h3>
         @RenderBody()
@@ -31,7 +39,7 @@
                     <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;resources
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="#" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                <a href="~/registry/index" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;directory
                 </a>
                 &nbsp;&nbsp;&nbsp;

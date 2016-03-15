@@ -5,7 +5,14 @@
 }
 
 <div class="container">
-    <div class="row" style="height:75px;">
+    <div class="row" style="width: 600px;">
+        The below methods represent a nascent data engine. So far, it accomplishes the following:
+        <br /><b>Grab and display groups</b>connects to the Meetup API, deserializes the JSON string returned into MeetupGroup objects, and then displays select properties of these objects in the view.
+        <br /><b>Generate member file</b> uses the groupIDs furnished by the first API call to grab all members of all groups in Eugene in the Tech category, deserializes them and stores them in a CSV in a local directory. This file can then be read by data-mining software such as RapidMiner with extensions to extract/infer gender.
+        <br /><b>Refresh gender-parsed database</b> consumes the output of the data-mining program, transforms the data into MeetupMemberParsed objects, and then stores them in the database.
+        <br /><b>Display data visualization</b> retrieves all records from the MeetupMemberParsed table, stores them in a list of MeetupMemberParsed objects, separates the objects into sub-lists by gender and then concatenates them, and then iterates through the consolidated list in a view to produce a handmade visualization.<br/><br/><hr />
+    </div>
+    <div class="row" style="height:60px;">
         <div class="col-sm-3">
             <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                 &nbsp;&nbsp;@Html.ActionLink("Grab and display groups via API", "Groups")
@@ -13,14 +20,14 @@
         </div>
         <div class="col-sm-5">
             <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-                &nbsp;&nbsp;@Html.ActionLink("Generate member file for data mining (LOCAL SERVER ONLY)", "GroupToMemberEngine")  
+                &nbsp;&nbsp;@Html.ActionLink("Generate member file for data mining (LOCAL SERVER ONLY)", "GroupToMemberEngine")
             </button>
         </div>
         <div class="col-sm-4" style="background-color: bisque; border-left: 1px solid;">
             @if (ViewBag.totalProcessed != null)
             {
-               <b>@(ViewBag.totalProcessed)</b>
-               @Html.Raw("&nbsp;Meetup members processed.");
+                <b>@(ViewBag.totalProcessed)</b>
+                @Html.Raw("&nbsp;Meetup members processed.");
             }
 
             @if (ViewBag.totalWritten != null)
@@ -28,7 +35,7 @@
                 <b>@(ViewBag.totalWritten)</b>
                 @Html.Raw("&nbsp;parsed Meetup members written to DB.");
             }
-        </div>      
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-5">

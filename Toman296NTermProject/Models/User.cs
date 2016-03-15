@@ -7,10 +7,13 @@ using System.Web;
 
 namespace Toman296NTermProject.Models
 {
-    public class User : ApplicationUser
+    public class User 
     {
-        //public int UserId { get; set; }
+        public int UserId { get; set; }
         public string organization { get; set; }
+        public string fname { get; set; }
+        public string lname { get; set; }
+        public string email { get; set; }
 
     }
 }

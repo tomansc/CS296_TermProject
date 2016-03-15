@@ -206,12 +206,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\CoreController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegistryController.cs" />
-    <Compile Include="DAL\DataInitializer.cs" />
     <Compile Include="DAL\Toman296NTermProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,6 +237,22 @@
     <Compile Include="Migrations\201603150619383_migration6.cs" />
     <Compile Include="Migrations\201603150619383_migration6.Designer.cs">
       <DependentUpon>201603150619383_migration6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150847055_migration7.cs" />
+    <Compile Include="Migrations\201603150847055_migration7.Designer.cs">
+      <DependentUpon>201603150847055_migration7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150859522_migration71.cs" />
+    <Compile Include="Migrations\201603150859522_migration71.Designer.cs">
+      <DependentUpon>201603150859522_migration71.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150903231_migration72.cs" />
+    <Compile Include="Migrations\201603150903231_migration72.Designer.cs">
+      <DependentUpon>201603150903231_migration72.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603151047444_Migration8.cs" />
+    <Compile Include="Migrations\201603151047444_Migration8.Designer.cs">
+      <DependentUpon>201603151047444_Migration8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -325,10 +339,14 @@
     <Content Include="Views\ApplicationUsers\Index.cshtml" />
     <Content Include="Views\Data\Visualize.cshtml" />
     <Content Include="Views\Core\Resources.cshtml" />
+    <Content Include="Views\Registry\Create.cshtml" />
+    <Content Include="Views\Registry\Delete.cshtml" />
+    <Content Include="Views\Registry\Details.cshtml" />
+    <Content Include="Views\Registry\Edit.cshtml" />
+    <Content Include="Views\Registry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Registry\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -356,6 +374,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603150619383_migration6.resx">
       <DependentUpon>201603150619383_migration6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150847055_migration7.resx">
+      <DependentUpon>201603150847055_migration7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150859522_migration71.resx">
+      <DependentUpon>201603150859522_migration71.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150903231_migration72.resx">
+      <DependentUpon>201603150903231_migration72.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603151047444_Migration8.resx">
+      <DependentUpon>201603151047444_Migration8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

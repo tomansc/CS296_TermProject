@@ -15,7 +15,7 @@ namespace Toman296NTermProject.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Toman296NTermProjectContext context)
@@ -23,12 +23,17 @@ namespace Toman296NTermProject.Migrations
             MeetupMemberParsed m1 = new MeetupMemberParsed { city = "Testville", country = "us", gender = "non-binary", id = "test", lat = "-1.00", link = "www.google.com", lon = "-1.00", name = "Database Seed", status = "Inactive" };
             context.MeetupMembersParsed.AddOrUpdate(m => m.gender, m1);
 
+            User u1 = new User { email = "samantha.toman@gmail.com", fname = "Samantha", lname = "Toman", organization = "LCC" };
+            context.RegistryUsers.Add(u1);
+            context.SaveChanges();
+
+
             if (!(context.Users.Any(u => u.UserName == "test@test.com")))
             {
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
                 var userToInsert = new ApplicationUser { UserName = "test@test.com", PhoneNumber = "1234567890" };
-                userManager.Create(userToInsert, "Password123");
+                userManager.Create(userToInsert, "Password123!");
 
                 context.Roles.AddOrUpdate(r => r.Name, new IdentityRole
                 {
@@ -50,22 +55,6 @@ namespace Toman296NTermProject.Migrations
                 userManager.AddToRole(userToInsert.Id, "Guest");
                 userManager.AddToRole(userToInsert.Id, "User");
             }
-            /*var manager = new UserManager<User>(
-                new UserStore<User>(context));
-
-            var user = new User { UserName = "testUser", Email = "test@user.com" };
-            manager.Create(user);
-            context.Users.AddOrUpdate(u => u.UserName, user);
-
-            context.Roles.AddOrUpdate(r => r.Name, new IdentityRole
-            {
-                Name = "Admin, Guest, User"
-            });
-
-            context.SaveChanges();
-            userManager.AddToRole(user.Id, "Admin");
-            manager.AddToRole(user.Id, "Guest");
-            manager.AddToRole(user.Id, "User");*/
         }
     }
 }
