@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Toman296NTermProject.Models.MeetupMemberParsed>
+@{
+    ViewBag.Title = "Visualization of current data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="mat">
+    @foreach (var member in Model)
+    {
+        if (member.gender == "Male")
+        {
+            <div class="gender male"></div>
+        }
+
+        if (member.gender == "Female")
+        {
+            <div class="gender female"></div>
+        }
+
+        if (member.gender == "Unknown")
+        {
+            <div class="gender other"></div>
+        }
+    }
+</div>
+<br />

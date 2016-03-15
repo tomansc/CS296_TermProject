@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Toman296NTermProject.Models.MeetupGroup>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.members)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+    </tr>
+
+    @foreach (var group in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => group.name)
+            </td>
+            <td>
+               @Html.Raw(group.description)
+            </td>
+            <td>
+               <a href="@Html.DisplayFor(modelItem => group.link)">Meetup page</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => group.members)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => group.id)
+            </td>
+        </tr>
+    }
+
+</table>
+

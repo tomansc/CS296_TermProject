@@ -23,5 +23,34 @@ textarea {
     background-color: rgba(204, 255, 102, 0.80);
     width: 100%;
     margin-top: 50px;
-    border: 1px solid black;
+    border: 3px solid white;
 }
+
+.gender {
+    border-radius: 50%;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin:0px;
+}
+
+.female {
+    background-color: crimson;
+}
+
+.male {
+    background-color: cornflowerblue;
+}
+
+.other {
+    background-color: orange;
+}
+
+.mat { 
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid gray;
+    margin: 15px;
+    padding: 10px;
+    display: table
+}
+

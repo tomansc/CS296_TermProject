@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Toman296NTermProject.Models
 {
-    public class Group
+    public class MeetupGroup
     {
         public double score { get; set; }
         public int id { get; set; }
@@ -28,7 +28,7 @@ namespace Toman296NTermProject.Models
         // public string group_photo { get; set; }
         public string timezone { get; set; }
         // public string next_event { get; set; }
-        public int category_id { get; set; }
+        public Category category { get; set; }
         // public List<string> photos { get; set; }
     }
 }

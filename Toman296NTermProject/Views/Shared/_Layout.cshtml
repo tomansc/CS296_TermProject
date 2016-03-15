@@ -8,31 +8,34 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
+    <div class="header" style="color:white;"><h2>&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;Tech and gender representation&nbsp;<small>&nbsp;&nbsp;Data tool and hub</small></h2></div>
     <div class="contentBox">
-        <h3>@ViewBag.Message</h3>
+        <h3>@ViewBag.Title</h3>
         @RenderBody()
         <hr />
         <footer>
             <p>
-
-                <a href="~/data/index" class="btn btn-default">
-                    <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;data engine <small>...someday with analytics</small>
+                <a href="~/core" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;home
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="~/core/contact" class="btn btn-default">
+                <a href="~/data/index" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                    <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;data engine
+                </a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="~/core/contact" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;contact
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="#" class="btn btn-default">
+                <a href="~/core/resources" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;resources
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="#" class="btn btn-default">
+                <a href="#" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;directory
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="~/core/about" class="btn btn-default">
+                <a href="~/core/about" class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;about
                 </a>
 

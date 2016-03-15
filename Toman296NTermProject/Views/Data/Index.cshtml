@@ -1,37 +1,49 @@
-﻿@model IEnumerable<Toman296NTermProject.Models.Group>
+﻿@model IEnumerable<Toman296NTermProject.Models.MeetupGroup>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Data Engine Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.link)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="row" style="height:75px;">
+        <div class="col-sm-3">
+            <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                &nbsp;&nbsp;@Html.ActionLink("Grab and display groups via API", "Groups")
+            </button>
+        </div>
+        <div class="col-sm-5">
+            <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                &nbsp;&nbsp;@Html.ActionLink("Generate member file for data mining (LOCAL SERVER ONLY)", "GroupToMemberEngine")  
+            </button>
+        </div>
+        <div class="col-sm-4" style="background-color: bisque; border-left: 1px solid;">
+            @if (ViewBag.totalProcessed != null)
+            {
+               <b>@(ViewBag.totalProcessed)</b>
+               @Html.Raw("&nbsp;Meetup members processed.");
+            }
 
-    @foreach (var group in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => group.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => group.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => group.link)
-            </td>
-        </tr>
-    }
+            @if (ViewBag.totalWritten != null)
+            {
+                <b>@(ViewBag.totalWritten)</b>
+                @Html.Raw("&nbsp;parsed Meetup members written to DB.");
+            }
+        </div>      
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                &nbsp;&nbsp;@Html.ActionLink("Refresh gender-parsed member DB (LOCAL SERVER ONLY)", "RegenerateMemberDatabase")
+            </button>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                &nbsp;&nbsp;@Html.ActionLink("Display data visualization", "VisualizeData")
+            </button>
+        </div>
+        <div class="col-sm-5">
 
-</table>
+        </div>
+    </div>
+</div>
 

@@ -1,0 +1,29 @@
+Today: 
+
+Export data-mined resultset to csv -- done
+Write method that: -- at least 3 hours 
+	Reads the CSV into list of MeetupMembersParsed objects -- done
+	Deletes all records in db.MeetupMembersParsed
+	Writes all MeetupMembersParsed objects to DB 
+	Migration
+
+Tomorrow (or tonight if time, but probably not)	
+Write method that:
+	Retrieves all db .MeetupMembersParsed records in list 
+	Foreach in list, generate a div based on gender
+	
+Write controllers for: --3-4 hours
+	Auth (or figure out how to work with the weird ones there?)
+	Registry, and include a couple of entries 
+	
+Add content to static pages (about, resources) -- 1 hour
+Prettify 
+
+Push changes to GitHub, create Azure shell for project and submit link(s)
+Attempt to upload to Azure -- 3 hours
+
+
+	
+
+	
+	

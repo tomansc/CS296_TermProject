@@ -206,18 +206,51 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\CoreController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RegistryController.cs" />
+    <Compile Include="DAL\DataInitializer.cs" />
+    <Compile Include="DAL\Toman296NTermProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603140809450_Toman296NTermProject.cs" />
+    <Compile Include="Migrations\201603140809450_Toman296NTermProject.Designer.cs">
+      <DependentUpon>201603140809450_Toman296NTermProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603140837064_Migration2.cs" />
+    <Compile Include="Migrations\201603140837064_Migration2.Designer.cs">
+      <DependentUpon>201603140837064_Migration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150434104_Migration3.cs" />
+    <Compile Include="Migrations\201603150434104_Migration3.Designer.cs">
+      <DependentUpon>201603150434104_Migration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150557284_migration4.cs" />
+    <Compile Include="Migrations\201603150557284_migration4.Designer.cs">
+      <DependentUpon>201603150557284_migration4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150600369_migration5.cs" />
+    <Compile Include="Migrations\201603150600369_migration5.Designer.cs">
+      <DependentUpon>201603150600369_migration5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150619383_migration6.cs" />
+    <Compile Include="Migrations\201603150619383_migration6.Designer.cs">
+      <DependentUpon>201603150619383_migration6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\APIServiceCaller.cs" />
-    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\MeetupGroup.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MeetupMember.cs" />
+    <Compile Include="Models\MeetupMemberUnparsed.cs" />
+    <Compile Include="Models\MeetupMemberParsed.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -284,9 +317,18 @@
     <Content Include="Views\Core\Contact.cshtml" />
     <Content Include="Views\Core\About.cshtml" />
     <Content Include="Views\Data\Index.cshtml" />
+    <Content Include="Views\Data\Groups.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\Data\Visualize.cshtml" />
+    <Content Include="Views\Core\Resources.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Registry\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -295,6 +337,26 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603140809450_Toman296NTermProject.resx">
+      <DependentUpon>201603140809450_Toman296NTermProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603140837064_Migration2.resx">
+      <DependentUpon>201603140837064_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150434104_Migration3.resx">
+      <DependentUpon>201603150434104_Migration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150557284_migration4.resx">
+      <DependentUpon>201603150557284_migration4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150600369_migration5.resx">
+      <DependentUpon>201603150600369_migration5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150619383_migration6.resx">
+      <DependentUpon>201603150619383_migration6.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
